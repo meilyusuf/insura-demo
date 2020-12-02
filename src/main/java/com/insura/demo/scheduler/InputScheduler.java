@@ -22,10 +22,7 @@ public class InputScheduler {
 	@Autowired
 	ReadCsvService readCsvService;
 	
-	@Autowired
-	PropertiesConfig prop;
-	
-	@Scheduled(cron = "0 5 1 * * ?")
+	@Scheduled(cron = "${cron.expression}")
 	public void cronJobInputCsv() throws IOException {
 		
 		logger.info("mulai job : {}", dateTimeFormatter.format(LocalDateTime.now()));
